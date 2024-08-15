@@ -35,10 +35,9 @@ internal static partial class MathUtils {
     /// <item> Allowed characters: 0-9 a-f A-F </item>
     /// </list>
     /// </summary>
-    public static bool IsBytes(this string str) {
-        if (str.Length % 2 != 0) return false;
-        return IsHex(str);
-    }
+    public static bool IsBytes(this string str)
+        => int.IsEvenInteger(str.Length)
+        && str.IsHex();
 
 
     /// <summary> Convert a <see cref="BCMath.BigInteger"/> to hex <see cref="string"/> </summary>
