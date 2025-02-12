@@ -53,7 +53,7 @@ it('should reject a bad signature', async () => {
 
   const verified = await sessionless.verifySignature(signature, 'A different message', keys.pubKey);
 
-  verified.should.be.true;
+  verified.should.be.false;
 });
 
 it('should generate a uuid', async () => {
