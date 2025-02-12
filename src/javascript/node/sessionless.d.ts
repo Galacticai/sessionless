@@ -6,8 +6,8 @@ export declare interface Keys {
 }
 
 export declare const generateKeys: (
-  getKeys: () => {},
-  saveKeys: () => {},
+  getKeys: () => Keys,
+  saveKeys: () => void,
 ) => Promise<Keys>;
 
 export declare const getKeys: () => Keys;
