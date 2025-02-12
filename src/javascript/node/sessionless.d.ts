@@ -1,11 +1,16 @@
 export declare const AsyncFunction: (func: () => {}) => void;
 
+export declare interface Keys {
+  privateKey: string;
+  publicKey: string;
+}
+
 export declare const generateKeys: (
   getKeys: () => {},
   saveKeys: () => {},
-) => Promise<{ privateKey: string; publicKey: string }>;
+) => Promise<Keys>;
 
-export declare const getKeys: () => { privateKey: string; publicKey: string };
+export declare const getKeys: () => Keys;
 
 export declare const sign: (message: string) => Promise<string>;
 
