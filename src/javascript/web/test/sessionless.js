@@ -1,7 +1,24 @@
-import { should as loadShould } from 'chai';
-import sessionless from '../sessionless.js';
+import { webcrypto } from 'node:crypto';
+if (!globalThis.crypto) globalThis.crypto = webcrypto;
 
-const should = loadShould();
+const { should } = await import('chai');
+import sessionless from '../sessionless.js';
+import * as secp from '@noble/secp256k1';
+//secp.etc.hmacSha256Sync = () => {};
+
+console.log(sessionless);
+
+/*let should;
+let sessionless;
+
+before(async () => {
+  const chai = await import('chai');
+  should = chai.should;
+  sessionless = await import('../sessionless.js');
+  should();
+});*/
+
+should();
 
 let keys;
 
@@ -57,6 +74,7 @@ it('should reject a bad signature', async () => {
 });
 
 it('should generate a uuid', async () => {
+  
   const uuid = await sessionless.generateUUID();
 
   uuid.should.be.a('string');
